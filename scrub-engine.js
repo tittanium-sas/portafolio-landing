@@ -188,7 +188,7 @@ function mountScrollWorld(container, config) {
     let off = 0;
     SEGMENTS.forEach(s => { s.start = off * vh; off += s.w; s.end = off * vh; });
     totalW = off;
-    track.style.height = (totalW * vh + vh) + 'px';   // +1vh so the last flight completes
+    track.style.height = (totalW * vh + 2 * vh) + 'px';   // +2vh so the last flight completes and the CTA stays visible
     read();
   }
 
@@ -233,7 +233,9 @@ function mountScrollWorld(container, config) {
       const local = clamp((y - s.start) / (s.end - s.start), 0, 1);
       s.target = s.linger ? lingerEase(local, s.linger) : local;
       let outside = 0;
-      if (y < s.start) outside = s.start - y; else if (y > s.end) outside = y - s.end;
+      if (y < s.start) outside = s.start - y;
+      // La ultima escena hace HOLD al final: no se desvanece al llegar al fondo
+      else if (y > s.end && i !== NSEG - 1) outside = y - s.end;
       const op = smooth(1 - outside / fade);
       s.el.style.opacity = op; s.visible = op > 0.001;
       s.el.style.zIndex = (i === ci) ? '120' : String(100 + Math.round(op * 10));
@@ -249,7 +251,7 @@ function mountScrollWorld(container, config) {
       const before = y < seg.start, after = y > seg.end;
       let cop;
       if (i === 0) cop = after ? 0 : smooth(1 - pr / 0.62);            // greets on landing
-      else if (i === N - 1) cop = before ? 0 : smooth(pr / 0.4);       // holds CTA at the end
+      else if (i === N - 1) cop = before ? 0 : smooth(Math.min(1, pr / 0.25));  // appears early, holds at the end
       else cop = (before || after) ? 0 : smooth(1 - Math.abs(pr - 0.5) / 0.5);
       const c = copies[i];
       c.style.opacity = cop;
