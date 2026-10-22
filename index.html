@@ -38,6 +38,14 @@
     img.alt = 'Tittanium';
     brand.appendChild(img);
   })();
+  // Enlace fijo a Saturno (flotante, no interfiere con el engine)
+  (function(){
+    var s = document.createElement('a');
+    s.href = 'saturno/';
+    s.textContent = '🪐 Saturno';
+    s.style.cssText = 'position:fixed;right:18px;bottom:18px;z-index:9999;display:inline-block;background:#0b1220;color:#81c784;padding:10px 18px;border-radius:99px;text-decoration:none;font-size:14px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.25);';
+    document.body.appendChild(s);
+  })();
 </script>
 </body>
 </html>
