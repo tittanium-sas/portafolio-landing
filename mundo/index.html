@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tittanium — el mundo de la Nube</title>
+  <meta name="description" content="Desplázate para volar por el mundo de Tittanium." />
+  <style>
+    :root, .sw-root {
+      --sw-bg: #eaf6ee;
+      --sw-ink: #16341c;
+      --sw-ink-soft: #5f6e68;
+      --sw-accent: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <div id="world"></div>
+
+  <script src="scrub-engine.js"></script>
+  <script>
+    mountScrollWorld(document.getElementById('world'), {
+      brand: { name: 'Tittanium · El mundo', href: '#top' },
+      cta: { label: 'Conoce todo el portafolio', href: 'https://portafolio.tittanium.co/' },
+      hint: 'scroll para volar',
+      diveScroll: 1.3,
+      connScroll: 0.9,
+      sections: [
+        // ETAPA 1 · UNIDAD CLOUD (TCM)
+        {
+          id: 'cloud', label: 'Nube',
+          still: 'assets/cloud.png',
+          clip: 'assets/vid/cloud.mp4',
+          accent: '#2e7d32',
+          scroll: 1.9, linger: 0.4,
+          eyebrow: 'Etapa 1 · Unidad Cloud',
+          title: 'TCM — tu nube bajo control.',
+          body: 'Vigilamos tu Azure 24/7 con IA: hallazgos priorizados, evidencia para gerenciar y ahorro real.',
+          tags: ['278 reglas', '6 pilares', '-14% costos'],
+          cta: {
+            primary: { label: 'Conoce TCM →', href: 'https://portafolio.tittanium.co/tcm/' },
+            secondary: { label: 'Sigue a Saturno →', href: 'https://portafolio.tittanium.co/saturno/' }
+          },
+        },
+      ],
+      // Etapas siguientes (Respaldo, Datos, IA, Saturno) se agregan aquí con sus dives + conectores.
+      connectors: [],
+      connectorsMobile: [],
+    });
+  </script>
+</body>
+</html>
