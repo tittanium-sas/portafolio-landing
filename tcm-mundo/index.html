@@ -17,10 +17,15 @@
     /* Fix 1: copy más arriba y legible */
     .sw-copy{ top:44%!important; }
     @media (max-width:860px){
-      .sw-root .sw-copy{ top:52%!important; bottom:auto!important; transform:none!important;
-        left:clamp(16px,5vw,40px)!important; right:auto!important; width:auto!important; max-width:min(80vw,430px)!important;
-        padding:16px 20px!important; border-radius:18px!important;
-        background:rgba(234,246,238,.82)!important; backdrop-filter:blur(8px)!important; }
+      .sw-root .sw-copy{ top:38%!important; bottom:auto!important; transform:none!important;
+        left:clamp(14px,4vw,32px)!important; right:auto!important; width:auto!important; max-width:min(84vw,430px)!important;
+        padding:14px 16px!important; border-radius:16px!important;
+        background:rgba(234,246,238,.85)!important; backdrop-filter:blur(8px)!important; }
+      .sw-root .sw-copy__title{ font-size:clamp(1.45rem,6vw,2.1rem)!important; margin-top:8px!important; }
+      .sw-root .sw-copy__body{ font-size:clamp(.88rem,3.2vw,.98rem)!important; margin-top:10px!important; line-height:1.45!important; }
+      .sw-root .sw-copy__tags{ margin-top:14px!important; gap:6px!important; }
+      .sw-root .sw-copy__eyebrow{ margin-top:10px!important; }
+      .sw-root .sw-copy__cta{ margin-top:16px!important; }
     }
     /* Fix 2: logo real de Tittanium en la topbar */
     .sw-root .sw-brand__mark{ width:34px!important; height:34px!important; border-radius:0!important;
