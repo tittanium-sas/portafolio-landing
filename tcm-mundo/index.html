@@ -15,7 +15,11 @@
   
     :root{ --sw-accent:#2e7d32; }
     /* Fix 1: copy más arriba y legible */
-    .sw-copy{ top:44%!important; }
+    .sw-copy{ top:34%!important; }
+    .sw-root .sw-copy__title{ font-size:clamp(1.45rem,2.9vw,2.4rem)!important; line-height:1.1!important; letter-spacing:-.015em!important; }
+    .sw-root .sw-copy__body{ font-size:clamp(.92rem,1vw,1.05rem)!important; max-width:44ch!important; line-height:1.5!important; }
+    .sw-root .sw-copy__tags{ margin-top:16px!important; }
+    .sw-root .sw-copy__cta{ margin-top:20px!important; }
     @media (max-width:860px){
       .sw-root .sw-copy{ top:38%!important; bottom:auto!important; transform:none!important;
         left:clamp(14px,4vw,32px)!important; right:auto!important; width:auto!important; max-width:min(84vw,430px)!important;
