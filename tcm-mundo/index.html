@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>TCM — El mundo de tu nube bajo control</title>
+  <meta name="description" content="Desplázate y vuela por el mundo de TCM." />
+  <style>
+    :root, .sw-root {
+      --sw-bg: #eaf6ee;
+      --sw-ink: #16341c;
+      --sw-ink-soft: #5f6e68;
+      --sw-accent: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <div id="world"></div>
+
+  <script src="scrub-engine.js"></script>
+  <script>
+    mountScrollWorld(document.getElementById('world'), {
+      brand: { name: 'Tittanium · TCM', href: '#top' },
+      cta: { label: 'Presentación completa', href: 'https://portafolio.tittanium.co/tcm/' },
+      hint: 'scroll para volar',
+      diveScroll: 1.35,
+      connScroll: 0.9,
+      sections: [
+        { id: 'problema', label: 'El problema', still: 'assets/problema.png', clip: 'assets/vid/problema.mp4',
+          accent: '#2e7d32', scroll: 1.7, linger: 0.4,
+          eyebrow: 'Unidad Cloud · El problema',
+          title: 'Tener Azure no es lo mismo que tenerlo bajo control.',
+          body: 'La nube crece sola: cada servicio nuevo, cada prueba, cada licencia olvidada. Y nadie tiene una foto completa.',
+          tags: ['Sin foto completa', 'Costos ocultos', 'Riesgos'] },
+        { id: 'ciclo', label: 'El ciclo', still: 'assets/ciclo.png', clip: 'assets/vid/ciclo.mp4',
+          accent: '#2e7d32', scroll: 1.6, linger: 0.35,
+          eyebrow: 'Cómo funciona',
+          title: 'Un ciclo que no se detiene — y en el que tú siempre decides.',
+          body: 'Conecta → Vigila 24/7 → Detecta → Prioriza → Tú decides → Evidencia. Nada se ejecuta sin tu aprobación.',
+          tags: ['Solo lectura', 'Tú decides', 'Evidencia'] },
+        { id: 'pilares', label: 'Pilares', still: 'assets/pilares.png', clip: 'assets/vid/pilares.mp4',
+          accent: '#2e7d32', scroll: 1.6, linger: 0.35,
+          eyebrow: 'Qué evalúa',
+          title: 'Seis pilares, los mismos que evalúa Microsoft — pero en tu idioma.',
+          body: 'TCM revisa tu Azure contra Microsoft Azure Well-Architected y traduce cada hallazgo a una decisión de negocio.',
+          tags: ['Seguridad', 'Costo', 'Confiabilidad', 'Rendimiento', 'Operaciones', 'Gobernanza'] },
+        { id: 'cambio', label: 'El cambio', still: 'assets/cambio.png', clip: 'assets/vid/cambio.mp4',
+          accent: '#2e7d32', scroll: 1.5, linger: 0.35,
+          eyebrow: 'Antes y después',
+          title: 'Antes y después de Tittanium Cloud Manager.',
+          body: 'No te decimos que está mejor: te lo mostramos. TCM mide la madurez de tu entorno desde el primer día.',
+          tags: ['Madurez mes a mes'] },
+        { id: 'resultados', label: 'Resultados', still: 'assets/resultados.png', clip: 'assets/vid/resultados.mp4',
+          accent: '#2e7d32', scroll: 1.6, linger: 0.4,
+          eyebrow: 'Resultados con datos',
+          title: 'Tu evolución, medida con datos reales.',
+          body: 'Microsoft Azure Partner, más de 50 proyectos en nube y certificaciones en arquitectura, redes, seguridad y datos.',
+          tags: ['-14% costos', '278 reglas', '24/7'] },
+        { id: 'confianza', label: 'Confianza', still: 'assets/confianza.png', clip: 'assets/vid/confianza.mp4',
+          accent: '#2e7d32', scroll: 1.5, linger: 0.35,
+          eyebrow: 'Confianza',
+          title: 'Tu nube sigue siendo tuya. Nosotros solo la cuidamos.',
+          body: 'Conectamos con permiso de solo lectura y en 1–2 días hábiles ves tu tablero. Si no aporta valor, se revoca el acceso.',
+          tags: ['Solo lectura', 'Revocable'] },
+        { id: 'cta', label: 'Empecemos', still: 'assets/cta.png', clip: 'assets/vid/cta.mp4',
+          accent: '#57c96a', scroll: 1.8, linger: 0.3,
+          eyebrow: 'Empecemos',
+          title: 'Prueba de 15 días, sin costo.',
+          body: 'Sin inversión inicial: TCM completo, Intelligence, monitoreo 24/7, hallazgos y evidencia.',
+          tags: [],
+          cta: { primary: { label: 'Quiero mi prueba', href: 'https://wa.me/573216362185' },
+                 secondary: { label: 'Presentación completa', href: 'https://portafolio.tittanium.co/tcm/' } } },
+      ],
+      connectors: [],
+      connectorsMobile: [],
+    });
+  </script>
+</body>
+</html>
