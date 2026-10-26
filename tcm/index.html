@@ -924,6 +924,11 @@
       <p class="sdesc">Suscripción mensual, sin inversión inicial. Todos los planes incluyen Tittanium Cloud Manager, Tittanium Intelligence, Monitoreo 24/7, Hallazgos y recomendaciones, Action Center y Resultados y madurez.</p>
     </div>
     <style>
+  .plan-toggle{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:#fff;border:1px solid var(--brand);border-radius:16px;padding:14px 18px;margin:22px 0 12px;box-shadow:var(--shadow)}
+  .plan-toggle .tt{font-size:14.5px;font-weight:800;color:#16341c}
+  .plan-toggle .tt small{display:block;font-size:11.5px;color:var(--muted);font-weight:600;margin-top:2px}
+  .plan-toggle .btn-w{background:var(--brand);color:#fff;font-weight:800;font-size:13px;padding:10px 20px;border-radius:999px;border:none;cursor:pointer}
+  .plan-toggle .btn-w:hover{background:var(--brand-dark)}
   .tblwrap{overflow-x:auto;border-radius:18px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow)}
   .plans thead th{position:sticky;top:6px;z-index:3;box-shadow:0 2px 6px rgba(0,0,0,.12)}
   .plans td.fname{position:sticky;left:0;background:#fff;z-index:2;box-shadow:2px 0 5px -3px rgba(0,0,0,.15)}
@@ -941,7 +946,12 @@
   .btnsm{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-size:11.5px;font-weight:800;padding:7px 14px;border-radius:999px}
   .btnsm:hover{background:#1f5a24}
 </style>
-<div class="tblwrap reveal">
+<div class="plan-toggle">
+      <div class="tt">📋 Planes recurrentes <small>Mejora continua con el TCM · todo el detalle de los planes incluido</small></div>
+      <button class="btn-w" id="plan-tog-btn" onclick="togPlans()">Contraer detalle ▴</button>
+    </div>
+    <div id="plans-wrap">
+    <div class="tblwrap reveal">
   <table class="plans">
     <colgroup><col style="min-width:225px"><col style="min-width:140px"><col style="min-width:140px"><col style="min-width:150px"><col style="min-width:140px"><col style="min-width:145px"></colgroup>
     <thead><tr><th>Ítem del plan</th><th>ESSENTIAL</th><th>STARTER</th><th>PROFESSIONAL</th><th>BUSINESS</th><th>ENTERPRISE</th></tr></thead>
@@ -949,6 +959,7 @@
   </table>
 </div>
 <p class="fcap">Precios en dólares (USD) fijos, más IVA. El pago se realiza en la moneda local según la TRM del día de facturación. Cada plan es un entorno aislado y dedicado para tu empresa.</p>
+    </div>
     <style>
       .impl-banner{background:linear-gradient(135deg,var(--brand),#3c9a46);color:#fff;border-radius:18px;padding:22px 24px;margin-top:26px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;box-shadow:var(--shadow)}
       .impl-banner h3{font-size:18px;letter-spacing:-.01em;margin-bottom:5px}
@@ -1052,6 +1063,14 @@
         cx.onchange=()=>{ calc(); };
         calc();
       })();
+      function togPlans(){
+        const w=document.getElementById('plans-wrap');
+        const b=document.getElementById('plan-tog-btn');
+        const open=w.style.display!=='none';
+        w.style.display=open?'none':'';
+        b.textContent=open?'📋 Ver detalle de los planes ▾':'Contraer detalle ▴';
+        if(b.textContent.startsWith('📋')) setTimeout(()=>{document.querySelector('#plans-wrap').scrollIntoView({behavior:'smooth',block:'start'});},60);
+      }
     </script>
 
   </div>
