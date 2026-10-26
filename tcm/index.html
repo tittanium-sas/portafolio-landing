@@ -995,12 +995,12 @@
       <p class="mini2">Valor hora según el volumen, multiplicado por la complejidad del proyecto. Soporte especializado + pago anticipado.</p>
       <label style="font-size:12px;font-weight:800;color:#16341c">1. Horas del proyecto</label>
       <div class="pkgs2" id="pkgs2">
-        <div class="pkg2" data-h="10"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Básico</div><b>10 h</b><div class="ph2">$280K/h</div></div>
-        <div class="pkg2 on" data-h="15"><div class="rec2">Recomendado</div><div style="font-size:9.5px;color:var(--muted);font-weight:800">Recomendado</div><b>15 h</b><div class="ph2">$270K/h</div></div>
-        <div class="pkg2" data-h="20"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Operativo</div><b>20 h</b><div class="ph2">$260K/h</div></div>
-        <div class="pkg2" data-h="30"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Empresarial</div><b>30 h</b><div class="ph2">$250K/h</div></div>
-        <div class="pkg2" data-h="50"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Avanzado</div><b>50 h</b><div class="ph2">$240K/h</div></div>
-        <div class="pkg2" data-h="100"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Corporativo</div><b>100 h</b><div class="ph2">$220K/h</div></div>
+        <div class="pkg2" data-h="10"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Básico</div><b>10 h</b><div class="ph2">$68/h</div></div>
+        <div class="pkg2 on" data-h="15"><div class="rec2">Recomendado</div><div style="font-size:9.5px;color:var(--muted);font-weight:800">Recomendado</div><b>15 h</b><div class="ph2">$66/h</div></div>
+        <div class="pkg2" data-h="20"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Operativo</div><b>20 h</b><div class="ph2">$63/h</div></div>
+        <div class="pkg2" data-h="30"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Empresarial</div><b>30 h</b><div class="ph2">$61/h</div></div>
+        <div class="pkg2" data-h="50"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Avanzado</div><b>50 h</b><div class="ph2">$59/h</div></div>
+        <div class="pkg2" data-h="100"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Corporativo</div><b>100 h</b><div class="ph2">$54/h</div></div>
       </div>
       <input type="range" id="cot-h" class="hsrange" min="5" max="150" step="5" value="15">
       <div class="hint3" style="text-align:center">Horas: <b id="cot-hv">15</b> · más horas = menor valor/hora</div>
@@ -1017,12 +1017,13 @@
         <div>
           <label>3. Estimado total</label>
           <div class="cot-total">
-            <div><div class="lbl">Total one-shot</div><div class="val" id="cot-total">$4.050.000</div><small>COP + IVA</small></div>
+            <div><div class="lbl">Total one-shot</div><div class="val" id="cot-total">$990</div><small>USD + IVA</small></div>
             <a class="btn-w" id="cot-wa" href="https://wa.me/573216362185?text=..." target="_blank" rel="noopener">Cotizar por WhatsApp</a>
           </div>
         </div>
       </div>
       <div class="cot-det" id="cot-det"></div>
+      <p class="hint3" style="margin-top:10px;text-align:center">Precios en dólares (USD) fijos, más IVA. El pago se realiza en la moneda local según la TRM del día de facturación.</p>
     </div>
     <script>
       function togCot(){
@@ -1034,17 +1035,17 @@
         if(!open) setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'start'}),60);
       }
       (function(){
-        const nf=n=>'$'+Math.round(n).toLocaleString('es-CO');
-        const rate=h=>h<=10?280000:h<=15?270000:h<=20?260000:h<=30?250000:h<=50?240000:220000;
+        const nf=n=>'$'+Math.round(n).toLocaleString('en-US');
+        const rate=h=>h<=10?68:h<=15?66:h<=20?63:h<=30?61:h<=50?59:54;
         const hIn=document.getElementById('cot-h'), cx=document.getElementById('cot-cx');
         const pk=document.querySelectorAll('#pkgs2 .pkg2');
         function calc(){
           const h=+hIn.value, f=+cx.value, r=rate(h), tot=Math.round(h*r*f);
           document.getElementById('cot-hv').textContent=h;
-          document.getElementById('cot-total').textContent=nf(tot)+' COP';
+          document.getElementById('cot-total').textContent=nf(tot)+' USD';
           const name=cx.options[cx.selectedIndex].text.split('—')[0].trim();
-          document.getElementById('cot-wa').href='https://wa.me/573216362185?text='+encodeURIComponent('Hola, quiero cotizar un despliegue nuevo: '+h+' horas, complejidad '+name+' (estimado '+nf(tot)+' COP + IVA)');
-          document.getElementById('cot-det').innerHTML='<span><b>Valor hora</b><span>'+nf(r)+' (tramo '+h+' h)</span></span><span><b>Factor complejidad</b><span>×'+f.toFixed(2)+'</span></span><span><b>Total (COP + IVA)</b><span>'+nf(tot)+'</span></span>';
+          document.getElementById('cot-wa').href='https://wa.me/573216362185?text='+encodeURIComponent('Hola, quiero cotizar un despliegue nuevo: '+h+' horas, complejidad '+name+' (estimado '+nf(tot)+' USD + IVA)');
+          document.getElementById('cot-det').innerHTML='<span><b>Valor hora</b><span>'+nf(r)+' (tramo '+h+' h)</span></span><span><b>Factor complejidad</b><span>×'+f.toFixed(2)+'</span></span><span><b>Total (USD + IVA)</b><span>'+nf(tot)+'</span></span>';
         }
         pk.forEach(p=>p.onclick=()=>{ pk.forEach(x=>x.classList.remove('on')); p.classList.add('on'); hIn.value=p.dataset.h; calc(); });
         hIn.oninput=e=>{ pk.forEach(x=>x.classList.toggle('on',+x.dataset.h===+e.target.value)); calc(); };
