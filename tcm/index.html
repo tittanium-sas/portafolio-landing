@@ -995,12 +995,12 @@
       <p class="mini2">Valor hora según el volumen, multiplicado por la complejidad del proyecto. Soporte especializado + pago anticipado.</p>
       <label style="font-size:12px;font-weight:800;color:#16341c">1. Horas del proyecto</label>
       <div class="pkgs2" id="pkgs2">
-        <div class="pkg2" data-h="10"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Básico</div><b>10 h</b><div class="ph2">$68/h</div></div>
-        <div class="pkg2 on" data-h="15"><div class="rec2">Recomendado</div><div style="font-size:9.5px;color:var(--muted);font-weight:800">Recomendado</div><b>15 h</b><div class="ph2">$66/h</div></div>
-        <div class="pkg2" data-h="20"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Operativo</div><b>20 h</b><div class="ph2">$63/h</div></div>
-        <div class="pkg2" data-h="30"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Empresarial</div><b>30 h</b><div class="ph2">$61/h</div></div>
-        <div class="pkg2" data-h="50"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Avanzado</div><b>50 h</b><div class="ph2">$59/h</div></div>
-        <div class="pkg2" data-h="100"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Corporativo</div><b>100 h</b><div class="ph2">$54/h</div></div>
+        <div class="pkg2" data-h="10"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Básico</div><b>10 h</b><div class="ph2">$70/h</div></div>
+        <div class="pkg2 on" data-h="15"><div class="rec2">Recomendado</div><div style="font-size:9.5px;color:var(--muted);font-weight:800">Recomendado</div><b>15 h</b><div class="ph2">$70/h</div></div>
+        <div class="pkg2" data-h="20"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Operativo</div><b>20 h</b><div class="ph2">$65/h</div></div>
+        <div class="pkg2" data-h="30"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Empresarial</div><b>30 h</b><div class="ph2">$60/h</div></div>
+        <div class="pkg2" data-h="50"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Avanzado</div><b>50 h</b><div class="ph2">$55/h</div></div>
+        <div class="pkg2" data-h="100"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Corporativo</div><b>100 h</b><div class="ph2">$50/h</div></div>
       </div>
       <input type="range" id="cot-h" class="hsrange" min="5" max="150" step="5" value="15">
       <div class="hint3" style="text-align:center">Horas: <b id="cot-hv">15</b> · más horas = menor valor/hora</div>
@@ -1008,11 +1008,10 @@
         <div>
           <label>2. Complejidad del proyecto</label>
           <select id="cot-cx">
-            <option value="0.8" data-ej="Ej: máquinas virtuales, configuraciones sencillas">Baja ×0.80 — VM, recursos sencillos</option>
-            <option value="1" selected data-ej="Ej: redes, seguridad, automatización">Media ×1.00 — redes, seguridad, automatización</option>
-            <option value="1.5" data-ej="Ej: arquitectura completa, migración, datacenter">Alta ×1.50 — arquitectura, migración, datacenter</option>
+            <option value="0.8">Complejidad baja</option>
+            <option value="1" selected>Complejidad media</option>
+            <option value="1.5">Complejidad alta</option>
           </select>
-          <div class="hint3" id="cot-cx-ej">Ej: redes, seguridad, automatización</div>
         </div>
         <div>
           <label>3. Estimado total</label>
@@ -1036,7 +1035,7 @@
       }
       (function(){
         const nf=n=>'$'+Math.round(n).toLocaleString('en-US');
-        const rate=h=>h<=10?68:h<=15?66:h<=20?63:h<=30?61:h<=50?59:54;
+        const rate=h=>h<=10?70:h<=15?70:h<=20?65:h<=30?60:h<=50?55:50;
         const hIn=document.getElementById('cot-h'), cx=document.getElementById('cot-cx');
         const pk=document.querySelectorAll('#pkgs2 .pkg2');
         function calc(){
@@ -1049,7 +1048,7 @@
         }
         pk.forEach(p=>p.onclick=()=>{ pk.forEach(x=>x.classList.remove('on')); p.classList.add('on'); hIn.value=p.dataset.h; calc(); });
         hIn.oninput=e=>{ pk.forEach(x=>x.classList.toggle('on',+x.dataset.h===+e.target.value)); calc(); };
-        cx.onchange=e=>{ document.getElementById('cot-cx-ej').textContent=e.target.options[e.target.selectedIndex].dataset.ej; calc(); };
+        cx.onchange=()=>{ calc(); };
         calc();
       })();
     </script>
