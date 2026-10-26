@@ -927,7 +927,7 @@
   .tblwrap{overflow-x:auto;border-radius:18px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow)}
   .plans thead th{position:sticky;top:6px;z-index:3;box-shadow:0 2px 6px rgba(0,0,0,.12)}
   .plans td.fname{position:sticky;left:0;background:#fff;z-index:2;box-shadow:2px 0 5px -3px rgba(0,0,0,.15)}
-  .plans{width:100%;border-collapse:collapse;font-size:13px;min-width:960px}
+  .plans{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;min-width:960px}
   .plans th{background:var(--brand);color:#fff;padding:14px 12px;font-size:13px;font-weight:820;letter-spacing:.06em;text-align:center}
   .plans th:first-child{text-align:left;background:#1f5a24}
   .plans tr.grp td{background:var(--brand-soft);color:var(--brand);font-weight:820;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:10px 12px;border-top:2px solid var(--line)}
@@ -949,6 +949,110 @@
   </table>
 </div>
 <p class="fcap">Precios en dólares (USD) fijos, más IVA. El pago se realiza en la moneda local según la TRM del día de facturación. Cada plan es un entorno aislado y dedicado para tu empresa.</p>
+    <style>
+      .impl-banner{background:linear-gradient(135deg,var(--brand),#3c9a46);color:#fff;border-radius:18px;padding:22px 24px;margin-top:26px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;box-shadow:var(--shadow)}
+      .impl-banner h3{font-size:18px;letter-spacing:-.01em;margin-bottom:5px}
+      .impl-banner p{font-size:13px;opacity:.92;max-width:520px}
+      .impl-banner .btn-w{background:#fff;color:var(--brand);font-weight:800;font-size:14px;padding:13px 24px;border-radius:999px;text-decoration:none;display:inline-block;border:none;cursor:pointer}
+      .impl-banner .btn-w:hover{background:var(--soft)}
+      .cot-sec{display:none;margin-top:18px;border:1px solid var(--line);border-radius:18px;background:#fff;padding:22px;box-shadow:var(--shadow)}
+      .cot-sec h3{font-size:17px;color:#16341c;margin-bottom:4px}
+      .cot-sec .mini2{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+      .cot-close{float:right;background:none;border:none;color:var(--muted);font-size:13px;font-weight:800;cursor:pointer;padding:4px 8px}
+      .cot-close:hover{color:var(--brand)}
+      .pkgs2{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:8px;margin:10px 0 6px}
+      .pkg2{border:2px solid var(--line);border-radius:10px;padding:9px 6px;text-align:center;cursor:pointer;background:#fff;transition:.15s;position:relative}
+      .pkg2.on{border-color:var(--brand);background:var(--soft)}
+      .pkg2 b{font-size:14.5px;display:block}
+      .pkg2 .ph2{font-size:11px;font-weight:800;color:var(--brand);margin-top:2px}
+      .pkg2 .rec2{position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#c77700;color:#fff;font-size:8.5px;font-weight:800;padding:2px 7px;border-radius:999px}
+      .cot-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+      .cot-row>div{flex:1;min-width:220px}
+      .cot-row label{font-size:12px;font-weight:800;color:#16341c;display:block;margin-bottom:6px}
+      .cot-row select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:10px;font-size:13.5px;background:#fff}
+      .cot-row .hint3{font-size:11px;color:var(--muted);margin-top:4px}
+      .cot-total{background:linear-gradient(135deg,var(--brand),#3c9a46);color:#fff;border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+      .cot-total .lbl{font-size:11.5px;opacity:.9}
+      .cot-total .val{font-size:26px;font-weight:900;letter-spacing:-.02em}
+      .cot-total small{font-size:11.5px;opacity:.9;display:block}
+      .cot-total .btn-w{background:#fff;color:var(--brand);font-weight:800;font-size:13.5px;padding:11px 20px;border-radius:999px;text-decoration:none}
+      .cot-det{font-size:12.5px;margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+      .cot-det span{display:flex;justify-content:space-between;margin-bottom:3px;color:#16341c}
+      .hsrange{width:100%;accent-color:var(--brand);margin-top:4px}
+    </style>
+    <div class="impl-banner">
+      <div>
+        <h3>¿Despliegue nuevo? Cotiza horas de implementación 🚀</h3>
+        <p>Los planes cubren la mejora continua de lo que ya tienes. Para implementaciones nuevas
+        <b>(one-shot · una sola vez)</b>, el valor se calcula por horas y complejidad del proyecto.</p>
+      </div>
+      <button class="btn-w" id="cot-btn" onclick="togCot()">🧮 Abrir cotizador de horas</button>
+    </div>
+
+    <div class="cot-sec" id="cot-sec">
+      <button class="cot-close" onclick="togCot()">✕ Cerrar</button>
+      <h3>🧮 Cotizador de horas de implementación</h3>
+      <p class="mini2">Valor hora según el volumen, multiplicado por la complejidad del proyecto. Soporte especializado + pago anticipado.</p>
+      <label style="font-size:12px;font-weight:800;color:#16341c">1. Horas del proyecto</label>
+      <div class="pkgs2" id="pkgs2">
+        <div class="pkg2" data-h="10"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Básico</div><b>10 h</b><div class="ph2">$280K/h</div></div>
+        <div class="pkg2 on" data-h="15"><div class="rec2">Recomendado</div><div style="font-size:9.5px;color:var(--muted);font-weight:800">Recomendado</div><b>15 h</b><div class="ph2">$270K/h</div></div>
+        <div class="pkg2" data-h="20"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Operativo</div><b>20 h</b><div class="ph2">$260K/h</div></div>
+        <div class="pkg2" data-h="30"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Empresarial</div><b>30 h</b><div class="ph2">$250K/h</div></div>
+        <div class="pkg2" data-h="50"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Avanzado</div><b>50 h</b><div class="ph2">$240K/h</div></div>
+        <div class="pkg2" data-h="100"><div style="font-size:9.5px;color:var(--muted);font-weight:800">Corporativo</div><b>100 h</b><div class="ph2">$220K/h</div></div>
+      </div>
+      <input type="range" id="cot-h" class="hsrange" min="5" max="150" step="5" value="15">
+      <div class="hint3" style="text-align:center">Horas: <b id="cot-hv">15</b> · más horas = menor valor/hora</div>
+      <div class="cot-row">
+        <div>
+          <label>2. Complejidad del proyecto</label>
+          <select id="cot-cx">
+            <option value="0.8" data-ej="Ej: máquinas virtuales, configuraciones sencillas">Baja ×0.80 — VM, recursos sencillos</option>
+            <option value="1" selected data-ej="Ej: redes, seguridad, automatización">Media ×1.00 — redes, seguridad, automatización</option>
+            <option value="1.5" data-ej="Ej: arquitectura completa, migración, datacenter">Alta ×1.50 — arquitectura, migración, datacenter</option>
+          </select>
+          <div class="hint3" id="cot-cx-ej">Ej: redes, seguridad, automatización</div>
+        </div>
+        <div>
+          <label>3. Estimado total</label>
+          <div class="cot-total">
+            <div><div class="lbl">Total one-shot</div><div class="val" id="cot-total">$4.050.000</div><small>COP + IVA</small></div>
+            <a class="btn-w" id="cot-wa" href="https://wa.me/573216362185?text=..." target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="cot-det" id="cot-det"></div>
+    </div>
+    <script>
+      function togCot(){
+        const c=document.getElementById('cot-sec');
+        const b=document.getElementById('cot-btn');
+        const open=c.style.display==='block';
+        c.style.display=open?'none':'block';
+        b.textContent=open?'🧮 Abrir cotizador de horas':'✕ Cerrar cotizador';
+        if(!open) setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'start'}),60);
+      }
+      (function(){
+        const nf=n=>'$'+Math.round(n).toLocaleString('es-CO');
+        const rate=h=>h<=10?280000:h<=15?270000:h<=20?260000:h<=30?250000:h<=50?240000:220000;
+        const hIn=document.getElementById('cot-h'), cx=document.getElementById('cot-cx');
+        const pk=document.querySelectorAll('#pkgs2 .pkg2');
+        function calc(){
+          const h=+hIn.value, f=+cx.value, r=rate(h), tot=Math.round(h*r*f);
+          document.getElementById('cot-hv').textContent=h;
+          document.getElementById('cot-total').textContent=nf(tot)+' COP';
+          const name=cx.options[cx.selectedIndex].text.split('—')[0].trim();
+          document.getElementById('cot-wa').href='https://wa.me/573216362185?text='+encodeURIComponent('Hola, quiero cotizar un despliegue nuevo: '+h+' horas, complejidad '+name+' (estimado '+nf(tot)+' COP + IVA)');
+          document.getElementById('cot-det').innerHTML='<span><b>Valor hora</b><span>'+nf(r)+' (tramo '+h+' h)</span></span><span><b>Factor complejidad</b><span>×'+f.toFixed(2)+'</span></span><span><b>Total (COP + IVA)</b><span>'+nf(tot)+'</span></span>';
+        }
+        pk.forEach(p=>p.onclick=()=>{ pk.forEach(x=>x.classList.remove('on')); p.classList.add('on'); hIn.value=p.dataset.h; calc(); });
+        hIn.oninput=e=>{ pk.forEach(x=>x.classList.toggle('on',+x.dataset.h===+e.target.value)); calc(); };
+        cx.onchange=e=>{ document.getElementById('cot-cx-ej').textContent=e.target.options[e.target.selectedIndex].dataset.ej; calc(); };
+        calc();
+      })();
+    </script>
+
   </div>
 </section>
 
