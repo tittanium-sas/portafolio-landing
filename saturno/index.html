@@ -353,6 +353,65 @@
 
     /* Dashed boundary variants */
     .c-security-group { fill: transparent; stroke: var(--security-stroke); stroke-dasharray: 4,4; }
+
+  .opt-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 24px;margin-top:26px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;box-shadow:var(--shadow);color:#16341c}
+  .opt-card h3{font-size:18px;letter-spacing:-.01em;color:#16341c;margin-bottom:5px}
+  .opt-card p{font-size:13px;color:var(--muted);max-width:540px}
+  .opt-card .btn-w{background:var(--brand);color:#fff;font-weight:800;font-size:14px;padding:12px 22px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;line-height:1.2}
+  .opt-card .btn-w:hover{background:#1f5a24;color:#fff}
+    .plan-toggle{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:#fff;border:1px solid var(--brand);border-radius:16px;padding:14px 18px;margin:22px 0 12px;box-shadow:var(--shadow)}
+  .plan-toggle .tt{font-size:14.5px;font-weight:800;color:#16341c}
+  .plan-toggle .tt small{display:block;font-size:11.5px;color:var(--muted);font-weight:600;margin-top:2px}
+  .plan-toggle .btn-w{background:var(--brand);color:#fff;font-weight:800;font-size:13px;padding:10px 20px;border-radius:999px;border:none;cursor:pointer}
+  .plan-toggle .btn-w:hover{background:#1f5a24}
+  .tblwrap{overflow-x:auto;border-radius:18px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow)}
+  .plans thead th{position:sticky;top:6px;z-index:3;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+  .plans td.fname{position:sticky;left:0;background:#fff;z-index:2;box-shadow:2px 0 5px -3px rgba(0,0,0,.15)}
+  .plans{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;min-width:960px}
+  .plans th{background:var(--brand);color:#fff;padding:14px 12px;font-size:13px;font-weight:820;letter-spacing:.06em;text-align:center}
+  .plans th:first-child{text-align:left;background:#1f5a24}
+  .plans tr.grp td{background:var(--brand-soft);color:var(--brand);font-weight:820;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:10px 12px;border-top:2px solid var(--line)}
+  .plans td{padding:11px 12px;border-bottom:1px solid #eef3ef;text-align:center;color:var(--muted)}
+  .plans td.fname{text-align:left;color:#16341c;font-weight:620}
+  .plans td.good{color:var(--brand);font-weight:900;font-size:15px}
+  .plans td.muted-cell{color:#b9c6bd}
+  .plans tr.price-r td{border-top:2px solid var(--line);background:#fbfdfb}
+  .plans td.price b{display:block;font-size:17px;color:#16341c;letter-spacing:-.02em}
+  .plans td.price small{display:block;font-size:11px;color:var(--muted);margin:3px 0 8px}
+  .btnsm{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-size:11.5px;font-weight:800;padding:7px 14px;border-radius:999px}
+  .btnsm:hover{background:#1f5a24}
+
+
+      .impl-banner{background:linear-gradient(135deg,var(--brand),#3c9a46);color:#fff;border-radius:18px;padding:22px 24px;margin-top:26px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;box-shadow:var(--shadow)}
+      .impl-banner h3{font-size:18px;letter-spacing:-.01em;margin-bottom:5px}
+      .impl-banner p{font-size:13px;opacity:.92;max-width:520px}
+      .impl-banner .btn-w{background:#fff;color:var(--brand);font-weight:800;font-size:14px;padding:13px 24px;border-radius:999px;text-decoration:none;display:inline-block;border:none;cursor:pointer}
+      .impl-banner .btn-w:hover{background:var(--soft)}
+      .cot-sec{display:none;margin-top:18px;border:1px solid var(--line);border-radius:18px;background:#fff;padding:22px;box-shadow:var(--shadow)}
+      .cot-sec h3{font-size:17px;color:#16341c;margin-bottom:4px}
+      .cot-sec .mini2{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+      .cot-close{float:right;background:none;border:none;color:var(--muted);font-size:13px;font-weight:800;cursor:pointer;padding:4px 8px}
+      .cot-close:hover{color:var(--brand)}
+      .pkgs2{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:8px;margin:10px 0 6px}
+      .pkg2{border:2px solid var(--line);border-radius:10px;padding:9px 6px;text-align:center;cursor:pointer;background:#fff;transition:.15s;position:relative}
+      .pkg2.on{border-color:var(--brand);background:var(--soft)}
+      .pkg2 b{font-size:14.5px;display:block}
+      .pkg2 .ph2{font-size:11px;font-weight:800;color:var(--brand);margin-top:2px}
+      .pkg2 .rec2{position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#c77700;color:#fff;font-size:8.5px;font-weight:800;padding:2px 7px;border-radius:999px}
+      .cot-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+      .cot-row>div{flex:1;min-width:220px}
+      .cot-row label{font-size:12px;font-weight:800;color:#16341c;display:block;margin-bottom:6px}
+      .cot-row select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:10px;font-size:13.5px;background:#fff}
+      .cot-row .hint3{font-size:11px;color:var(--muted);margin-top:4px}
+      .cot-total{background:linear-gradient(135deg,var(--brand),#3c9a46);color:#fff;border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+      .cot-total .lbl{font-size:11.5px;opacity:.9}
+      .cot-total .val{font-size:26px;font-weight:900;letter-spacing:-.02em}
+      .cot-total small{font-size:11.5px;opacity:.9;display:block}
+      .cot-total .btn-w{background:#fff;color:var(--brand);font-weight:800;font-size:13.5px;padding:11px 20px;border-radius:999px;text-decoration:none}
+      .cot-det{font-size:12.5px;margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+      .cot-det span{display:flex;justify-content:space-between;margin-bottom:3px;color:#16341c}
+      .hsrange{width:100%;accent-color:var(--brand);margin-top:4px}
+    
 </style>
 </head>
 <body>
@@ -464,14 +523,14 @@
     </div>
     <div class="tblwrap reveal">
       <table>
-        <thead><tr><th></th><th>ChatGPT Dots · OpenAI</th><th>Saturno · Tittanium</th></tr></thead>
+        <thead><tr><th></th><th>ChatGPT Dots · OpenAI</th><th>Claude Duet · Anthropic</th><th>Saturno · Tittanium</th></tr></thead>
         <tbody>
-          <tr><td><b>Modelo</b></td><td class="bad">1 persona = 1 dot (individual)</td><td class="good">Flota de agentes por empresa</td></tr>
-          <tr><td><b>Colaboración</b></td><td class="bad">Los dots NO se hablan entre sí</td><td class="good">Los agentes SÍ se hablan (enjambre)</td></tr>
-          <tr><td><b>Puestos</b></td><td class="bad">Sin cargos ni flota</td><td class="good">Cargos reales (comercial, analista, soporte…)</td></tr>
-          <tr><td><b>Gobierno</b></td><td class="bad">Sin orquestación visible</td><td class="good">Orquestador + equipo coordinado</td></tr>
-          <tr><td><b>Aislamiento</b></td><td class="bad">Espacio personal</td><td class="good">Aislado por cliente</td></tr>
-          <tr><td><b>Costo</b></td><td class="bad">$30–200+ / usuario / mes</td><td class="good">Fracción del costo (OpenRouter/Nous)</td></tr>
+          <tr><td><b>Modelo</b></td><td class="bad">1 persona = 1 dot (individual)</td><td class="bad">1 asistente personal por persona</td><td class="good">Flota de agentes por empresa</td></tr>
+          <tr><td><b>Colaboración</b></td><td class="bad">Los dots NO se hablan entre sí</td><td class="bad">Asistente único, trabaja solo</td><td class="good">Los agentes SÍ se hablan (enjambre)</td></tr>
+          <tr><td><b>Puestos</b></td><td class="bad">Sin cargos ni flota</td><td class="bad">Sin cargos ni flota</td><td class="good">Cargos reales (comercial, analista, soporte…)</td></tr>
+          <tr><td><b>Gobierno</b></td><td class="bad">Sin orquestación visible</td><td class="bad">Sin orquestación de equipo</td><td class="good">Orquestador + equipo coordinado</td></tr>
+          <tr><td><b>Aislamiento</b></td><td class="bad">Espacio personal</td><td class="bad">Computadora personal en la nube</td><td class="good">Aislado por cliente</td></tr>
+          <tr><td><b>Costo</b></td><td class="bad">$30–200+ / usuario / mes</td><td class="bad">Incluido en Pro/Max · solo EE.UU.</td><td class="good">Fracción del costo (OpenRouter/Nous)</td></tr>
         </tbody>
       </table>
     </div>
