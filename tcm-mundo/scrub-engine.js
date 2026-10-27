@@ -280,7 +280,7 @@ function mountScrollWorld(container, config) {
       if (Math.abs(rawY - smoothY) < 0.4) smoothY = rawY;
       read();
     }
-    const eps = isMobile() ? 0.02 : 0.008;   // coarser seek step on phones = fewer decodes
+    const eps = isMobile() ? 0.04 : 0.03;   // buscar menos seguido = menos stutter   // coarser seek step on phones = fewer decodes
     for (let i = 0; i < NSEG; i++) {
       const s = SEGMENTS[i];
       if (!s.hasClip || !s.ready || !s.video) continue;
