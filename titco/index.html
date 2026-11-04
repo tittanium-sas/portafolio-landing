@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tittanium — Tecnología que trabaja para ti</title>
+<meta name="description" content="Tecnología poderosa, simple e intuitiva. Gestionamos tu infraestructura en la nube (Azure) y operamos tu negocio con agentes de IA. Tittanium S.A.S."/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='8' y='8' width='48' height='48' rx='10' transform='rotate(45 32 32)' fill='%232e7d32'/%3E%3Crect x='20' y='20' width='24' height='24' rx='5' transform='rotate(45 32 32)' fill='%2357c96a'/%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --green:#2e7d32; --green-2:#1f5a24; --bright:#57c96a; --lime:#b7f0b0;
+  --bg:#eef8f0; --ink:#12381a; --ink-soft:#3f6a4a; --card:#ffffff; --line:#cfe6d5;
+  --radius:22px; --shadow:0 22px 60px -24px rgba(30,90,40,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.1;letter-spacing:-.01em}
+a{text-decoration:none;color:inherit}
+.container{width:min(1160px,90vw);margin:0 auto}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 26px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Sora';font-weight:800;color:var(--green-2)}
+.brand .diamond{width:30px;height:30px}
+.nav-links{display:flex;gap:26px;font-weight:500;font-size:.95rem;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{background:var(--green);color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:.9rem;transition:.2s}
+.nav-cta:hover{background:var(--green-2)}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ===== HERO 3D ===== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  overflow:hidden;background:radial-gradient(120% 100% at 50% 0%,#f3fbf4 0%,#e2f3e6 55%,#d2ead9 100%)}
+#scene{cursor:default}
+.hero-inner{position:relative;z-index:3;padding:120px 20px 60px}
+.hero .badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+  padding:8px 16px;border-radius:999px;font-size:.8rem;font-weight:600;color:var(--green-2);box-shadow:0 8px 24px -14px rgba(30,90,40,.35)}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--bright);box-shadow:0 0 0 0 var(--bright);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(87,201,106,.5)}70%{box-shadow:0 0 0 9px rgba(87,201,106,0)}100%{box-shadow:0 0 0 0 rgba(87,201,106,0)}}
+.hero h1{font-size:clamp(2.3rem,5.6vw,4.4rem);margin:22px auto 14px;max-width:900px;color:var(--green-2)}
+.hero h1 em{font-style:normal;color:var(--green);position:relative;white-space:nowrap}
+.hero p.sub{font-size:clamp(1rem,1.6vw,1.25rem);color:var(--ink-soft);max-width:640px;margin:0 auto 30px}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:999px;font-weight:600;font-family:'Sora';font-size:.98rem;transition:.22s;border:1px solid transparent}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 14px 34px -14px rgba(46,125,50,.6)}
+.btn-primary:hover{transform:translateY(-3px);background:var(--green-2)}
+.btn-ghost{background:#fff;color:var(--green-2);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--green);transform:translateY(-3px)}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;color:var(--ink-soft);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-hint .mouse{width:26px;height:42px;border:2px solid var(--ink-soft);border-radius:14px;position:relative}
+.scroll-hint .mouse::after{content:'';position:absolute;top:7px;left:50%;width:4px;height:8px;margin-left:-2px;border-radius:4px;background:var(--green);animation:wheel 1.6s ease-out infinite}
+@keyframes wheel{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(14px)}}
+
+/* ===== SECTIONS ===== */
+section{padding:96px 0;position:relative}
+.eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:600;font-family:'Sora'}
+h2{font-size:clamp(1.7rem,3.6vw,2.9rem);color:var(--green-2);margin:10px 0 16px}
+.sec-head{max-width:640px;margin-bottom:48px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* propuesta / unidades */
+.units{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
+.unit{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px;transition:.25s;position:relative;overflow:hidden}
+.unit:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.unit .tag{position:absolute;top:22px;right:22px;font-size:.72rem;font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px}
+.tag-cloud{background:var(--lime);color:var(--green-2)}
+.tag-ai{background:#cfe7ff;color:#17456e}
+.tag-erp{background:#f1e7d6;color:#7a5c16}
+.unit .ic{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;margin-bottom:18px;background:var(--lime);color:var(--green-2);font-size:28px}
+.unit h3{font-size:1.28rem;color:var(--green-2);margin-bottom:8px}
+.unit p{color:var(--ink-soft);font-size:.96rem}
+.unit ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+.unit ul li{display:flex;gap:9px;align-items:flex-start;font-size:.92rem;color:var(--ink)}
+.unit ul li::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--bright);margin-top:7px;flex:none}
+.unit .mini{display:inline-flex;gap:6px;margin-top:18px;font-size:.86rem;font-weight:600;color:var(--green)}
+.unit .mini:hover{text-decoration:underline}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px;margin-top:40px}
+.stat{background:var(--green);border-radius:var(--radius);padding:30px;color:#fff;text-align:center}
+.stat b{font-family:'Sora';font-size:2.6rem;display:block;color:#fff}
+.stat span{font-size:.9rem;opacity:.9}
+
+/* TCM mini banner */
+.banner{background:linear-gradient(135deg,#2e7d32,#1f5a24);border-radius:var(--radius);color:#fff;padding:44px;
+  display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap;box-shadow:var(--shadow)}
+.banner h3{font-size:1.5rem;color:#fff;margin-bottom:6px}
+.banner p{opacity:.92;max-width:520px}
+.banner .btn{background:#fff;color:var(--green-2)}
+.banner .btn small{display:block;font-size:.72rem;opacity:.7;font-weight:500}
+
+/* CTA final */
+.final{position:relative;text-align:center;padding:120px 0;background:var(--green-2);color:#fff;border-radius:var(--radius);overflow:hidden}
+.final::before{content:'';position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 0,#3f9c47,transparent)}
+.final h2{color:#fff;font-size:clamp(1.9rem,4vw,3.2rem)}
+.final p{max-width:560px;margin:0 auto 30px;opacity:.92}
+.final .btn{border-radius:999px}
+
+footer{padding:40px 0;color:var(--ink-soft);font-size:.86rem;border-top:1px solid var(--line);text-align:center}
+footer .fbrand{font-family:'Sora';color:var(--green-2);font-weight:800;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:8px}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#top">
+    <svg class="diamond" viewBox="0 0 64 64"><rect x="20" y="20" width="24" height="24" rx="5" transform="rotate(45 32 32)" fill="#2e7d32"/><rect x="27" y="27" width="10" height="10" rx="2" transform="rotate(45 32 32)" fill="#57c96a"/></svg>
+    tittanium
+  </a>
+  <div class="nav-links">
+    <a href="#cloud">Nube</a><a href="#ia">Inteligencia</a><a href="#unidos">Plataforma</a><a href="#nosotros">Cifras</a>
+  </div>
+  <a class="nav-cta" href="https://wa.me/573216362185">Hablemos</a>
+</nav>
+
+<!-- ============ HERO 3D ============ -->
+<header class="hero" id="top">
+  <canvas id="scene"></canvas>
+  <div class="hero-inner">
+    <span class="badge"><span class="dot"></span>Aliado en nube e inteligencia artificial</span>
+    <h1>Tecnología poderosa,<br/><em>simple e intuitiva.</em></h1>
+    <p class="sub">Gestionamos tu infraestructura en la nube (Microsoft Azure) y operamos tu negocio con agentes de IA. Tú te concentras en crecer; nosotros cuidamos la tecnología.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://portafolio.tittanium.co/">Explora nuestro portafolio</a>
+      <a class="btn btn-ghost" href="https://www.tittanium.co/contactus">Contáctanos</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><span class="mouse"></span>scroll</div>
+</header>
+
+<!-- ============ UNIDADES ============ -->
+<section id="cloud">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Dos unidades · una plataforma</p>
+      <h2>Soluciones que simplifican la nube</h2>
+      <p>Desde tu infraestructura bajo control hasta tu empresa operada por agentes de IA, todo en un ecosistema diseñado para entregar resultados medibles.</p>
+    </div>
+    <div class="units">
+      <div class="unit reveal">
+        <span class="tag tag-cloud">NUBE · TCM</span>
+        <div class="ic">☁️</div>
+        <h3>Tittanium Cloud Manager</h3>
+        <p>Tu nube bajo control. Vigilamos tu cuenta de Azure 24/7 y convertimos el desorden en acciones claras y priorizadas.</p>
+        <ul>
+          <li>Visibilidad total de tu entorno</li>
+          <li>Action Center: qué atacar primero y por qué</li>
+          <li>Reportes ejecutivos para tu gerencia</li>
+        </ul>
+        <a class="mini" href="https://portafolio.tittanium.co/tcm-mundo/">Ver en acción →</a>
+      </div>
+      <div class="unit reveal">
+        <span class="tag tag-ai">IA · SATURNO</span>
+        <div class="ic">🪐</div>
+        <h3>Tittanium AI — Saturno</h3>
+        <p>Tu empresa, operada con IA. Empleados digitales que analizan, responden y ejecutan procesos completos, en equipo 24/7.</p>
+        <ul>
+          <li>Agentes con oficio y memoria definida</li>
+          <li>Dashboard de flujos en vivo</li>
+          <li>Tus datos, tus agentes, privados y seguros</li>
+        </ul>
+        <a class="mini" href="https://portafolio.tittanium.co/saturno-mundo/">Conocer Saturno →</a>
+      </div>
+      <div class="unit reveal">
+        <span class="tag tag-erp">PRÓXIMAMENTE</span>
+        <div class="ic">🧭</div>
+        <h3>Tittanium ERP</h3>
+        <p>La próxima evolución de la gestión empresarial: finanzas, inventario, ventas y operación conectados y administrados por agentes.</p>
+        <ul>
+          <li>Nube bajo control con TCM</li>
+          <li>Equipo de IA con Saturno</li>
+          <li>Una sola base para toda tu operación</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CIFRAS ============ -->
+<section id="nosotros" style="padding-top:20px">
+  <div class="container reveal" style="text-align:center">
+    <p class="eyebrow">Confianza con resultados</p>
+    <h2>Tecnología que trabaja para ti</h2>
+  </div>
+  <div class="container reveal">
+    <div class="stats">
+      <div class="stat"><b>10+</b><span>Certificaciones Microsoft Azure</span></div>
+      <div class="stat"><b>50+</b><span>Proyectos ejecutados en la nube</span></div>
+      <div class="stat"><b>99,9%</b><span>Disponibilidad en producción</span></div>
+      <div class="stat"><b>24/7</b><span>Vigilancia con Tittanium Intelligence</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLATAFORMA ============ -->
+<section id="unidos">
+  <div class="container">
+    <div class="banner reveal">
+      <div>
+        <p class="eyebrow" style="color:#b7f0b0">Una sola base</p>
+        <h3>Nube bajo control + equipo de IA, juntos</h3>
+        <p>Tittanium Intelligence es el motor que vigila, entiende y te alerta — conecta al TCM y a todos los servicios de Tittanium.</p>
+      </div>
+      <a class="btn" href="https://portafolio.tittanium.co/tcm/">Conoce la inteligencia<small>que impulsa tu operación</small></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section style="padding-top:20px">
+  <div class="container">
+    <div class="final reveal">
+      <p class="eyebrow" style="color:#b7f0b0">¿Listo para transformar tu tecnología?</p>
+      <h2>Empieza con 15 días de prueba, sin costo</h2>
+      <p>Definimos juntos el plan y el organigrama de tu organización. Tú decides; nosotros cuidamos la tecnología.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-primary" style="background:#12381a" href="https://wa.me/573216362185">Quiero mi prueba gratis</a>
+        <a class="btn" style="background:#fff;color:#12381a" href="https://www.tittanium.co/contactus">Escríbenos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="width:min(1160px,90vw);margin:0 auto">
+    <div class="fbrand">
+      <svg class="diamond" style="width:24px;height:24px" viewBox="0 0 64 64"><rect x="20" y="20" width="24" height="24" rx="5" transform="rotate(45 32 32)" fill="#2e7d32"/></svg>
+      tittanium
+    </div>
+    <p>Tittanium S.A.S. · Medellín, Colombia · comercial@tittanium.co · +57 321 636 2185</p>
+    <p style="margin-top:6px;opacity:.7">© 2026 Tittanium S.A.S. — Tecnología que trabaja para ti.</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script>
+/* Hero 3D — núcleo de inteligencia girando (Three.js) */
+(function(){
+  const canvas=document.getElementById('scene');const hero=document.querySelector('.hero');
+  let renderer,scene,camera,group;
+  try{
+    renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+    scene=new THREE.Scene();
+    camera=new THREE.PerspectiveCamera(45,1,0.1,100);camera.position.z=7;
+    group=new THREE.Group();scene.add(group);
+    // núcleo brillante
+    const core=new THREE.Mesh(new THREE.IcosahedronGeometry(1.15,2),
+      new THREE.MeshPhongMaterial({color:0x2e7d32,emissive:0x0f4520,shininess:60,flatShading:false}));
+    group.add(core);
+    // anillos orbitales
+    const ringMat=new THREE.MeshBasicMaterial({color:0x57c96a,transparent:true,opacity:.75,side:THREE.DoubleSide});
+    const r1=new THREE.Mesh(new THREE.TorusGeometry(1.95,0.016,16,120),ringMat);r1.rotation.x=1.25;group.add(r1);
+    const r2=new THREE.Mesh(new THREE.TorusGeometry(2.5,0.012,16,120),ringMat.clone());r2.rotation.z=1.1;r2.rotation.x=1.7;group.add(r2);
+    // nodos en órbita (agentes)
+    const nodeGeo=new THREE.IcosahedronGeometry(0.14,1);
+    const nodeMat=new THREE.MeshBasicMaterial({color:0xb7f0b0});
+    const nodes=[];
+    for(let i=0;i<6;i++){const n=new THREE.Mesh(nodeGeo,nodeMat);nodes.push(n);group.add(n);}
+    // luces
+    scene.add(new THREE.AmbientLight(0xffffff,0.6));
+    const d=new THREE.DirectionalLight(0xffffff,0.9);d.position.set(4,4,6);scene.add(d);
+    function resize(){
+      const r=hero.getBoundingClientRect();
+      renderer.setSize(r.width,r.height,false);
+      camera.aspect=r.width/r.height;camera.updateProjectionMatrix();
+    }
+    resize();window.addEventListener('resize',resize);
+    let vel=0;
+    window.addEventListener('scroll',()=>{const p=hero.getBoundingClientRect().bottom;vel=Math.max(0,Math.min(p/hero.offsetHeight,1));});
+    (function loop(){
+      requestAnimationFrame(loop);
+      group.rotation.y+=0.003;group.rotation.x+=0.0008;
+      for(let i=0;i<nodes.length;i++){const a=i/nodes.length*Math.PI*2+performance.now()/900;nodes[i].position.set(Math.cos(a)*2.2,Math.sin(a*2)*0.6,Math.sin(a)*2.2);}
+      const target=THREE.MathUtils.lerp(vel,1,vel);
+      camera.position.z=7-target*1.8;camera.position.y=(1-vel)*0.4;
+      camera.lookAt(0,0,0);
+      renderer.render(scene,camera);
+    })();
+  }catch(e){canvas.style.display='none';}
+})();
+
+/* Reveal on scroll */
+(function(){
+  const els=document.querySelectorAll('.reveal');
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  els.forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>
